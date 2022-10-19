@@ -18,6 +18,11 @@ export default function App() {
 
   function toggle(item){
 
+    //no se puede llamar a este método con index, ocurre lo mismo con borrar
+    //porque en el return tenemos dos listas resultado de un filter (ver que aparecen dos map y por lo tanto hay dos arrays), 
+    //el index 0 está dos veces por ejemplo, una en la lista de cosas por hacer y otra en la de cosas hechas
+    //se podría haber hecho dos estados distintos y dos métodos borrar o hay múltiples maneras de hacerlo
+
     const newMyList = [...miLista];
     const index = newMyList.indexOf(item);
     if (index > -1) {
@@ -28,10 +33,7 @@ export default function App() {
 
   function borrar(item){
     const newMyList = [...miLista];
-    //no se puede llamar a este método con index, 
-    //porque en el return tenemos dos listas resultado de un filter (ver que aparecen dos map y por lo tanto hay dos arrays), 
-    //el index 0 está dos veces por ejemplo, una en la lista de cosas por hacer y otra en la de cosas hechas
-    //se podría haber hecho dos estados distintos y dos métodos borrar o hay múltiples maneras de hacerlo
+  
     const index = newMyList.indexOf(item);
     if (index > -1) {
       newMyList.splice(index, 1); 
@@ -50,12 +52,10 @@ export default function App() {
     setMiLista(newMyList);
   }
 
-  const renderItem = ({item, index}) => {
-
-    console.log(item, index);
+  const renderItem = ({item}) => {
 
     return (
-      <Todo item={item} index={index} toggle={toggle} borrar={borrar}/>
+      <Todo item={item} toggle={toggle} borrar={borrar}/>
     )
   }
   
