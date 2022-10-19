@@ -9,8 +9,7 @@ export default function Formulario(props) {
     <View>
 			<Text>Título</Text>
 			<TextInput placeholder="Añade un texto" value={texto} onChangeText={setTexto}/>
-      <Text>Completado </Text>
-      <Button title="Añadir" onPress={() =>props.crear(texto, completado)}/>
+      <Button title="Añadir" onPress={() =>props.crear(texto, false)}/>
     </View>
     )
 }
