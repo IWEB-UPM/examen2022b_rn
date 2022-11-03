@@ -5,11 +5,11 @@ export default function Formulario(props) {
   const [texto, setTexto] = useState("");
   const [completado, setCompletado] = useState(false);
 
-	return (
-    	  <View>
-	    <Text>Título</Text>
-	    <TextInput placeholder="Añade un texto" value={texto} onChangeText={setTexto}/>
-            <Button title="Añadir" onPress={() =>props.crear(texto, false)}/>
-          </View>
-        )
+  return (
+    <View>
+      <Text>Título</Text>
+      <TextInput placeholder="Añade un texto" value={texto} onChangeText={setTexto}/>
+      <Button title="Añadir" onPress={() =>props.crear(texto, false)}/>
+    </View>
+  )
 }
